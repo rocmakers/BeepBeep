@@ -429,7 +429,8 @@ def lcd_fob_tester_unknown_card():
 
 
 def _lcd_line(text):
-    return str(text or "")[:16].ljust(16)
+    formatted = str(text or "")[:16]
+    return formatted + " " * (16 - len(formatted))
 
 
 def lcd_fob_tester_lookup_result(full_name, account_status):
@@ -607,7 +608,7 @@ def unlock_door():
     hardware.relay_on()
     logger.warn("Unlocked!")
     hardware.rgb_led_set(hardware.RGB_GREEN)
-    lcd_door_access_success
+    lcd_door_access_success()
     hardware.buzz_ok(flash_led=False)
 
     if config.DOOR_SENSOR_ENABLED:

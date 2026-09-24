@@ -30,7 +30,7 @@ i2c_devices = []
 lcd = None
 
 if config.SDA_PIN and config.SCL_PIN:
-    i2c = I2C(0, scl=Pin(config.SCL_PIN), sda=Pin(config.SDA_PIN), freq=400000)
+    i2c = I2C(0, scl=Pin(config.SCL_PIN), sda=Pin(config.SDA_PIN), freq=100000)
 
     for device in i2c.scan():
         i2c_devices.append(device)
