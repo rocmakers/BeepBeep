@@ -20,7 +20,6 @@ venv/
 mainboard-firmware.code-workspace
 tags.json
 state.json
-pymakr.conf
 LICENSE
 PROTOCOL.md
 README.md

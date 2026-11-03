@@ -487,6 +487,7 @@ def interlock_end_session():
 
 def handle_swipe_door(card: str):
     global authorised_rfid_tags
+    # if config.BUZZER_ENABLED:
     hardware.buzz_card_read()
 
     if card in authorised_rfid_tags:
@@ -495,8 +496,9 @@ def handle_swipe_door(card: str):
             hardware.alert()
 
         else:
-            log_door_swipe(card)
             unlock_door()
+            log_door_swipe(card)
+
 
     else:
         log_door_swipe(card, rejected=True)
@@ -980,6 +982,9 @@ while True:
 
                             time.sleep(4)
                             print_device_standby_message()
+                    elif data.get("command") == "log_access_denied":
+                        pass  # server acknowledgement, nothing to do
+
                     else:
                         logger.warn("Unknown websocket packet!")
                         logger.warn(json.dumps(data))

@@ -97,7 +97,7 @@ class Wiegand:
         facility_code = self._get_facility_code()
         card_id = self._get_card()
         
-        return int(f"{facility_code}{card_id}")
+        return int(f"{facility_code}{card_id:05d}")
 
     def _get_card_uid(self):
         if self._last_card is None:

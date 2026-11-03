@@ -45,5 +45,6 @@ The first step is to install Micropython onto your ESP32 board. A full tutorial 
    esptool.py --chip esp32s3 --port /dev/tty.usbserial-210 write_flash -z 0 ESP32_GENERIC_S3-20231227-v1.22.0.bin
    ```
 
-5. Update `config.py` with the correct config for your setup then flash the software to your board using the VS Code plugin "pymakr". Alternatively, use another tool like "ampy".
-   NOTE: You can find a list of files to exclude in the `pymakr.conf` file or just use pymakr which automatically does this for you.
+5. Update `config.py` with the correct config for your setup, then connect to the board and upload the project using the VS Code extension [MicroPico](https://marketplace.visualstudio.com/items?itemName=paulober.pico-w-go). The extension was designed for Raspberry Pi Pico boards and has experimental ESP32-S3 support.
+
+   Install MicroPico if prompted by VS Code, connect the board over USB, then run **MicroPico: Upload Project to Board** from the Command Palette. If the board is not detected automatically, use **MicroPico: Switch Board** to select its serial port. The project's `.vscode/settings.json` configures the files and folders excluded from uploads; `config.py` is intentionally included even though Git ignores it.

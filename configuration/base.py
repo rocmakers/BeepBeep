@@ -39,7 +39,7 @@ OUT_1_REVERSED = False
 IN_1_REVERSED = True
 AUX_1_REVERSED = False
 AUX_2_REVERSED = False
-FIXED_UNLOCK_DELAY = 7  # seconds to remain unlocked
+FIXED_UNLOCK_DELAY = 3  # seconds to remain unlocked
 RGB_LED_COUNT = 1  # number of LEDs in the strip
 WIEGAND_ENABLED = True
 
